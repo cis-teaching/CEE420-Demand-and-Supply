@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://scbcryf430me"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbjib"]
+albedo_color = Color(0.405147, 0.74165, 0.366711, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_5wolf"]
+material = SubResource("StandardMaterial3D_jbjib")
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47pve"]
+albedo_color = Color(0.750328, 0.46778, 0.421963, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_xn6mu"]
+orientation = 1
+
+[node name="Tiles" type="Node3D"]
+
+[node name="Buyer" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_5wolf")
+
+[node name="Seller" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = SubResource("StandardMaterial3D_47pve")
+mesh = SubResource("QuadMesh_xn6mu")

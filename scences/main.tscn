@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmjr4in5yltf3"]
+[gd_scene load_steps=6 format=3 uid="uid://dmjr4in5yltf3"]
 
 [ext_resource type="Texture2D" uid="uid://cptbbgn4lwfwq" path="res://sprites/selector.png" id="1_gf57l"]
 [ext_resource type="Script" path="res://scripts/selector.gd" id="1_v75bi"]
 [ext_resource type="Script" path="res://scripts/view.gd" id="2_87fg1"]
 [ext_resource type="Environment" uid="uid://dbjsxenrf4mew" path="res://environments/main_environment.tres" id="2_l4p32"]
+[ext_resource type="MeshLibrary" uid="uid://dtwxfwn24hkje" path="res://tiles/tiles.tres" id="3_f6wor"]
 
 [node name="Main" type="Node3D"]
 
@@ -16,8 +17,12 @@ gridmap = NodePath("../GridMap")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 texture = ExtResource("1_gf57l")
 
+[node name="Container" type="Node3D" parent="Selector"]
+
 [node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("3_f6wor")
 cell_size = Vector3(1, 1, 1)
+cell_center_y = false
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
