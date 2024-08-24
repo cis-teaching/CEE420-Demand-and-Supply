@@ -6,4 +6,4 @@ var buyers = 0:
 
 var sellers = 0:
 	set(value):
-		buyers = value
+		sellers = value

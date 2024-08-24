@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 	#print(gridmap.map_to_local(gridmap_position))
 	# print(gridmap_position)
 	# print(sprite_dict)
-	print(Globals.buyers)
+	print(Globals.buyers, Globals.sellers)
 
 func action_add(gridmap_position:Vector3) -> void:
 	if Input.is_action_just_pressed("agent_add"):
@@ -52,7 +52,7 @@ func action_add(gridmap_position:Vector3) -> void:
 		# gridmap.set_cell_item(gridmap_position, index, 
 		# 	gridmap.get_orthogonal_index_from_basis(selector.basis))
 		if gridmap_position in sprite_dict:
-			sprite_dict[gridmap_position].queue_free()
+			sprite_dict[gridmap_position].remove()
 			sprite_dict.erase(gridmap_position)
 			
 		var _agent = agents[index].instantiate()
@@ -62,17 +62,20 @@ func action_add(gridmap_position:Vector3) -> void:
 		_correction.y = 0
 		_agent.global_position = gridmap.map_to_local(gridmap_position) - _correction
 		_agent.rotate_y(deg_to_rad(orientations[degree]))
+		_agent.add()
 		
 		# Add sprite to scene and dict
 		sprites.add_child(_agent)
 		sprite_dict[gridmap_position] = _agent
+		
+
 		
 func action_remove(gridmap_position:Vector3) -> void:
 	if Input.is_action_just_pressed("agent_remove"):
 		# gridmap.set_cell_item(gridmap_position, -1)
 		
 		if gridmap_position in sprite_dict:
-			sprite_dict[gridmap_position].queue_free()
+			sprite_dict[gridmap_position].remove()
 			sprite_dict.erase(gridmap_position)
 
 

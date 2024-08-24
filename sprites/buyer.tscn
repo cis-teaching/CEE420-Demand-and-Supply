@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci6twqswmpwxg"]
+[gd_scene load_steps=4 format=3 uid="uid://ci6twqswmpwxg"]
 
 [ext_resource type="PackedScene" uid="uid://tchsn4lo2s5x" path="res://sprites/agent.tscn" id="1_2bj77"]
+[ext_resource type="Script" path="res://sprites/buyer.gd" id="2_i0wxk"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_gbb0y"]
 
 [node name="Buyer" instance=ExtResource("1_2bj77")]
+script = ExtResource("2_i0wxk")
 
 [node name="Building" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.268855, 0)
