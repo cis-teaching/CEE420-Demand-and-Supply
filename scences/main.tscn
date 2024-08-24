@@ -9,10 +9,12 @@
 
 [node name="Main" type="Node3D"]
 
-[node name="Builder" type="Node3D" parent="." node_paths=PackedStringArray("selector", "gridmap")]
+[node name="Builder" type="Node3D" parent="." node_paths=PackedStringArray("selector", "gridmap", "container", "sprites")]
 script = ExtResource("1_5tlqa")
 selector = NodePath("../Selector")
 gridmap = NodePath("../GridMap")
+container = NodePath("../Selector/Container")
+sprites = NodePath("../Sprites")
 
 [node name="Selector" type="Node3D" parent="." node_paths=PackedStringArray("view_camera", "gridmap")]
 script = ExtResource("1_v75bi")
@@ -30,6 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
 mesh_library = ExtResource("3_f6wor")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
+
+[node name="Sprites" type="Node3D" parent="."]
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)

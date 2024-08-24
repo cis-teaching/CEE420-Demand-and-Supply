@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://6whv2f6um8sm"]
+
+[ext_resource type="PackedScene" uid="uid://tchsn4lo2s5x" path="res://sprites/agent.tscn" id="1_kiojm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cdo1g"]
+
+[node name="Seller" instance=ExtResource("1_kiojm")]
+
+[node name="Building" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.618051, 0)
+mesh = SubResource("CylinderMesh_cdo1g")
