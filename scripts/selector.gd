@@ -5,6 +5,7 @@ extends Node3D
 
 # Raycasting the mouse
 var plane:Plane
+var gridmap_position:Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +21,7 @@ func _process(delta: float) -> void:
 		view_camera.project_ray_origin(get_viewport().get_mouse_position()),
 		view_camera.project_ray_normal(get_viewport().get_mouse_position()))
 		
-	var gridmap_position = Vector3(round(world_position.x),0,round(world_position.z))
+	gridmap_position = Vector3(round(world_position.x),0,round(world_position.z))
 	
 	# update position
 	position = lerp(position,gridmap_position,delta * 40)
