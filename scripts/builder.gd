@@ -40,8 +40,8 @@ func _process(delta: float) -> void:
 	# Print Information
 	#print(gridmap.get_cell_item(gridmap_position))
 	#print(gridmap.map_to_local(gridmap_position))
-	print(gridmap_position)
-	print(sprite_dict)
+	# print(gridmap_position)
+	# print(sprite_dict)
 
 func action_add(gridmap_position:Vector3) -> void:
 	if Input.is_action_just_pressed("agent_add"):
