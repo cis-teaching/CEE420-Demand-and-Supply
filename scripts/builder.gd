@@ -44,7 +44,7 @@ func _process(_delta: float) -> void:
 	#print(gridmap.map_to_local(gridmap_position))
 	# print(gridmap_position)
 	# print(sprite_dict)
-	print(Globals.buyers, Globals.sellers)
+	# print(Globals.buyers, Globals.sellers)
 
 func action_add(gridmap_position:Vector3) -> void:
 	if Input.is_action_just_pressed("agent_add"):
