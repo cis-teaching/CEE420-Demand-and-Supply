@@ -58,10 +58,8 @@ func action_add(gridmap_position:Vector3) -> void:
 		var _agent = agents[index].instantiate()
 		
 		# Correction term to fix cell offset
-		var _correction = gridmap.cell_size/2
-		_correction.y = 0
-		_agent.global_position = gridmap.map_to_local(gridmap_position) - _correction
-		_agent.rotate_y(deg_to_rad(orientations[degree]))
+		_agent.global_position = gridmap.map_to_local(gridmap_position) - _correction()
+		_agent_rotate(_agent)
 		_agent.add()
 		
 		# Add sprite to scene and dict
@@ -101,5 +99,14 @@ func preview() -> void:
 		
 	# Create new preveiw
 	var _agent = agents[index].instantiate()
-	_agent.rotate_y(deg_to_rad(orientations[degree]))
+	_agent_rotate(_agent)
+	#_agent.rotate_y(deg_to_rad(orientations[degree]))
 	container.add_child(_agent)
+
+func _agent_rotate(agent:Node3D) -> void:
+	agent.rotate_y(deg_to_rad(orientations[degree]))
+
+func _correction() -> Vector3:
+	var _correction = gridmap.cell_size/2
+	_correction.y = 0
+	return _correction
