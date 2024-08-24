@@ -26,25 +26,26 @@ func handle_input(_delta:float) -> void:
 	
 	# Movement
 	
-	var input := Vector3.ZERO
+	var input_move := Vector3.ZERO
 	
-	input.x = Input.get_axis("camera_left","camera_right")
-	input.z = Input.get_axis("camera_forward","camera_back")
+	input_move.x = Input.get_axis("camera_left","camera_right")
+	input_move.z = Input.get_axis("camera_forward","camera_back")
 	
-	input = input.rotated(Vector3.UP,rotation.y).normalized()
+	input_move = input_move.rotated(Vector3.UP,rotation.y).normalized()
 	
 	# Update position
-	camera_position += input / 4
+	camera_position += input_move / 4
+	
+	# Rotation
+	
+	var input_rotation := Vector3.ZERO
+	
+	input_rotation.y = Input.get_axis("camera_rotate_left","camera_rotate_right")
+	
+	# Update rotation
+	camera_rotation += input_rotation
 	
 	# Center camera
 	
 	if Input.is_action_pressed("camera_center"):
 		camera_position=Vector3()
-	
-func _input(event) -> void:
-	
-	# Rotate camera
-	
-	if event is InputEventMouseMotion:
-		if Input.is_action_pressed("camera_rotate"):
-			camera_rotation += Vector3(0, -event.relative.x / 10, 0)
