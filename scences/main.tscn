@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmjr4in5yltf3"]
+[gd_scene load_steps=3 format=3 uid="uid://dmjr4in5yltf3"]
 
 [ext_resource type="Texture2D" uid="uid://cptbbgn4lwfwq" path="res://sprites/selector.png" id="1_gf57l"]
+[ext_resource type="Environment" uid="uid://dbjsxenrf4mew" path="res://environments/main_environment.tres" id="2_l4p32"]
 
 [node name="Main" type="Node3D"]
 
@@ -21,4 +22,5 @@ transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.
 
 [node name="Camera" type="Camera3D" parent="View"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+environment = ExtResource("2_l4p32")
 fov = 20.0
