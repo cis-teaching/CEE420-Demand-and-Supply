@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	# Function to handle keyboard inputs
 	handle_input(delta)
 	
-func handle_input(_delta):
+func handle_input(_delta:float) -> void:
 	
 	# Movement
 	
@@ -41,11 +41,10 @@ func handle_input(_delta):
 	if Input.is_action_pressed("camera_center"):
 		camera_position=Vector3()
 	
-func _input(event):
+func _input(event) -> void:
 	
 	# Rotate camera
 	
 	if event is InputEventMouseMotion:
 		if Input.is_action_pressed("camera_rotate"):
 			camera_rotation += Vector3(0, -event.relative.x / 10, 0)
-		
