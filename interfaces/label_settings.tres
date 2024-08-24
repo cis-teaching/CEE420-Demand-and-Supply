@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cw16x1swnwp6c"]
+
+[ext_resource type="FontFile" uid="uid://ck0rlnp6r7ro" path="res://fonts/lilita_one_regular.ttf" id="1_rlblk"]
+
+[resource]
+font = ExtResource("1_rlblk")
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.392157)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmjr4in5yltf3"]
+[gd_scene load_steps=8 format=3 uid="uid://dmjr4in5yltf3"]
 
 [ext_resource type="Script" path="res://scripts/builder.gd" id="1_5tlqa"]
 [ext_resource type="Texture2D" uid="uid://cptbbgn4lwfwq" path="res://sprites/selector.png" id="1_gf57l"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/view.gd" id="2_87fg1"]
 [ext_resource type="Environment" uid="uid://dbjsxenrf4mew" path="res://environments/main_environment.tres" id="2_l4p32"]
 [ext_resource type="MeshLibrary" uid="uid://dtwxfwn24hkje" path="res://tiles/tiles.tres" id="3_f6wor"]
+[ext_resource type="PackedScene" uid="uid://b478wmoj0ca8i" path="res://interfaces/main_ui.tscn" id="7_5nj14"]
 
 [node name="Main" type="Node3D"]
 
@@ -46,3 +47,5 @@ script = ExtResource("2_87fg1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 environment = ExtResource("2_l4p32")
 fov = 20.0
+
+[node name="main_ui" parent="." instance=ExtResource("7_5nj14")]

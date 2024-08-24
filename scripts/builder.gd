@@ -28,7 +28,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Get grid position
 	var gridmap_position = selector.gridmap_position
 
@@ -100,13 +100,12 @@ func preview() -> void:
 	# Create new preveiw
 	var _agent = agents[index].instantiate()
 	_agent_rotate(_agent)
-	#_agent.rotate_y(deg_to_rad(orientations[degree]))
 	container.add_child(_agent)
 
 func _agent_rotate(agent:Node3D) -> void:
 	agent.rotate_y(deg_to_rad(orientations[degree]))
 
 func _correction() -> Vector3:
-	var _correction = gridmap.cell_size/2
-	_correction.y = 0
-	return _correction
+	var vector = gridmap.cell_size/2
+	vector.y = 0
+	return vector
