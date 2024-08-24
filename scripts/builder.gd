@@ -16,6 +16,7 @@ extends Node3D
 
 # Index of structure being built
 var index:int = 0
+var sprite_dict = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,15 +38,20 @@ func _process(delta: float) -> void:
 	action_toggle()
 	
 	# Print Information
-	print(gridmap.get_cell_item(gridmap_position))
-	print(gridmap.map_to_local(gridmap_position))
+	#print(gridmap.get_cell_item(gridmap_position))
+	#print(gridmap.map_to_local(gridmap_position))
+	print(gridmap_position)
+	print(sprite_dict)
 
 func action_add(gridmap_position:Vector3) -> void:
 	if Input.is_action_just_pressed("agent_add"):
 		# var previous_tile = gridmap.get_cell_item(gridmap_position)
-		gridmap.set_cell_item(gridmap_position, index, 
-			gridmap.get_orthogonal_index_from_basis(selector.basis))
-		
+		# gridmap.set_cell_item(gridmap_position, index, 
+		# 	gridmap.get_orthogonal_index_from_basis(selector.basis))
+		if gridmap_position in sprite_dict:
+			sprite_dict[gridmap_position].queue_free()
+			sprite_dict.erase(gridmap_position)
+			
 		var _agent = agents[index].instantiate()
 		
 		# Correction term to fix cell offset
@@ -53,11 +59,18 @@ func action_add(gridmap_position:Vector3) -> void:
 		_correction.y = 0
 		_agent.global_position = gridmap.map_to_local(gridmap_position) - _correction
 
+		# Add sprite to scene and dict
 		sprites.add_child(_agent)
+		sprite_dict[gridmap_position] = _agent
 		
 func action_remove(gridmap_position:Vector3) -> void:
 	if Input.is_action_just_pressed("agent_remove"):
-		gridmap.set_cell_item(gridmap_position, -1)
+		# gridmap.set_cell_item(gridmap_position, -1)
+		
+		if gridmap_position in sprite_dict:
+			sprite_dict[gridmap_position].queue_free()
+			sprite_dict.erase(gridmap_position)
+
 
 func action_toggle() -> void:
 	var tile_size = gridmap.mesh_library.get_item_list().size()
