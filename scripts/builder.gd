@@ -16,6 +16,8 @@ extends Node3D
 
 # Index of structure being built
 var index:int = 0
+var degree:int =0
+var orientations: Array =[0,90,180,270]
 var sprite_dict = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +38,7 @@ func _process(delta: float) -> void:
 	
 	# Toggle between agents
 	action_toggle()
-	
+	action_rotate()	
 	# Print Information
 	#print(gridmap.get_cell_item(gridmap_position))
 	#print(gridmap.map_to_local(gridmap_position))
@@ -58,7 +60,8 @@ func action_add(gridmap_position:Vector3) -> void:
 		var _correction = gridmap.cell_size/2
 		_correction.y = 0
 		_agent.global_position = gridmap.map_to_local(gridmap_position) - _correction
-
+		_agent.rotate_y(deg_to_rad(orientations[degree]))
+		
 		# Add sprite to scene and dict
 		sprites.add_child(_agent)
 		sprite_dict[gridmap_position] = _agent
@@ -83,6 +86,10 @@ func action_toggle() -> void:
 		
 	preview()
 
+func action_rotate() -> void:
+	if Input.is_action_just_pressed("agent_rotate"):
+		degree = wrap(degree -1, 0, orientations.size())
+	
 func preview() -> void:
 	# Clear preview container
 	for n in container.get_children():
@@ -90,4 +97,5 @@ func preview() -> void:
 		
 	# Create new preveiw
 	var _agent = agents[index].instantiate()
+	_agent.rotate_y(deg_to_rad(orientations[degree]))
 	container.add_child(_agent)
