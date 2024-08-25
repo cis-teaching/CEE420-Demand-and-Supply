@@ -1,12 +1,14 @@
+class_name AgentClass
 extends Node3D
 
-class_name AgentClass
+
 
 # Class varialbes
 var limit:float=0.0
 var _initial:float=INF
 var _prices:Array[float]=[_initial]
 var success:bool=false
+var kind:String="Agent"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -50,8 +52,6 @@ func get_adjustment(kind:String="fixed")->float:
 
 func add() -> void:
 	adjust_price()
-	print(_prices)
-	pass
 
 func remove() -> void:
 	queue_free()

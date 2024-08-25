@@ -14,3 +14,5 @@ func negotiation(buyer:BuyerClass,seller:SellerClass) -> bool:
 
 func _on_main_ui_run_trading() -> void:
 	print('run simulation')
+	for n in sprites.get_children():
+		print(n.kind)

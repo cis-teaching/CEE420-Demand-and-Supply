@@ -2,6 +2,10 @@ extends AgentClass
 
 class_name BuyerClass
 
+
+func _ready() -> void:
+	kind =  "Buyer"
+
 func adjust_price()->void:
 	var adjustment = get_adjustment()
 	if success:
