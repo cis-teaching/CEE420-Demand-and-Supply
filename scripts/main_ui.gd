@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal run_trading
+
 @onready var buyer_label: Label = $Status/VBoxContainer/ContainerBuyer/CounterBuyer
 @onready var seller_label: Label = $Status/VBoxContainer/ContainerSeller/CounterSeller
 
@@ -17,3 +19,6 @@ func update_buyer() -> void:
 	
 func update_seller() -> void:
 	seller_label.text = str(Globals.sellers)
+
+func _on_button_run_pressed() -> void:
+	emit_signal("run_trading")

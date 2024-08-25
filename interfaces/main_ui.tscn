@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b478wmoj0ca8i"]
+[gd_scene load_steps=4 format=3 uid="uid://b478wmoj0ca8i"]
 
 [ext_resource type="LabelSettings" uid="uid://cw16x1swnwp6c" path="res://interfaces/label_settings.tres" id="1_31x0g"]
 [ext_resource type="Script" path="res://scripts/main_ui.gd" id="1_bsssl"]
 [ext_resource type="FontFile" uid="uid://ck0rlnp6r7ro" path="res://fonts/lilita_one_regular.ttf" id="3_x7mf3"]
-[ext_resource type="Script" path="res://scripts/button_run.gd" id="4_cgx7t"]
 
-[node name="main_ui" type="CanvasLayer"]
+[node name="MainUI" type="CanvasLayer"]
 script = ExtResource("1_bsssl")
 
 [node name="Status" type="Control" parent="."]
@@ -72,4 +71,5 @@ offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("3_x7mf3")
 theme_override_font_sizes/font_size = 24
 text = "Run"
-script = ExtResource("4_cgx7t")
+
+[connection signal="pressed" from="Button/ButtonRun" to="." method="_on_button_run_pressed"]
