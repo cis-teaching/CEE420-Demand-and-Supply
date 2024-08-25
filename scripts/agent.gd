@@ -1,5 +1,10 @@
 extends Node3D
 
+class_name AgentClass
+
+
+
+var limit:float=0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +17,6 @@ func _process(_delta: float) -> void:
 
 func add() -> void:
 	pass
-
 
 func remove() -> void:
 	queue_free()

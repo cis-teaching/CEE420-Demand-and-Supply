@@ -1,8 +1,14 @@
-extends "res://scripts/agent.gd"
+extends AgentClass
+
+class_name BuyerClass
+
+
 
 func add() -> void:
 	Globals.buyers += 1
+	super()
+	
 
 func remove() -> void:
 	Globals.buyers -= 1
-	queue_free()
+	super()
