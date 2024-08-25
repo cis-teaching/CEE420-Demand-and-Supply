@@ -49,6 +49,8 @@ func get_adjustment(kind:String="fixed")->float:
 	return adjustment
 
 func add() -> void:
+	adjust_price()
+	print(_prices)
 	pass
 
 func remove() -> void:
