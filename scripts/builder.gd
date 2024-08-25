@@ -58,7 +58,7 @@ func action_add(gridmap_position:Vector3) -> void:
 		var _agent = agents[index].instantiate()
 		
 		# Correction term to fix cell offset
-		_agent.global_position = gridmap.map_to_local(gridmap_position) - _correction()
+		_agent.position = gridmap.map_to_local(gridmap_position) - _correction()
 		_agent_rotate(_agent)
 		_agent.add()
 		
