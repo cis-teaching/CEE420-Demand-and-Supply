@@ -4,7 +4,7 @@ extends Node3D
 
 
 # Class varialbes
-var limit:float=0.0
+@export var limit:float=10.0
 var _initial:float=INF
 var _prices:Array[float]=[_initial]
 var success:bool=false
