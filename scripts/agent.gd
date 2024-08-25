@@ -8,7 +8,7 @@ var limit:float=0.0
 var _initial:float=INF
 var _prices:Array[float]=[_initial]
 var success:bool=false
-var kind:String="Agent"
+var type:String="Agent"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

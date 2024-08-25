@@ -14,5 +14,17 @@ func negotiation(buyer:BuyerClass,seller:SellerClass) -> bool:
 
 func _on_main_ui_run_trading() -> void:
 	print('run simulation')
+	var buyer:BuyerClass
+	var seller:SellerClass
+	var success:bool=false
 	for n in sprites.get_children():
-		print(n.kind)
+		if n.type == "Buyer":
+			buyer = n
+		else:
+			seller = n
+	print(buyer)
+	print(seller)
+	if not buyer or not seller:
+		return
+	success = negotiation(buyer,seller)
+	print(success)

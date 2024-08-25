@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 
 	# Add and remove Agents 
 	# action_add(gridmap_position)
-	action_remove(gridmap_position)
+	action_remove()
 	
 	# Toggle between agents
 	action_toggle()
@@ -84,7 +84,7 @@ func _unhandled_input(event):
 		
 
 		
-func action_remove(gridmap_position:Vector3) -> void:
+func action_remove() -> void:
 	if Input.is_action_just_pressed("agent_remove"):
 		# gridmap.set_cell_item(gridmap_position, -1)
 		
