@@ -16,8 +16,6 @@ func adjust_price()->void:
 	
 func add() -> void:
 	Globals.buyers += 1
-	super()
-	
 
 func remove() -> void:
 	Globals.buyers -= 1

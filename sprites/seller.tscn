@@ -7,7 +7,7 @@
 
 [node name="Seller" instance=ExtResource("1_kiojm")]
 script = ExtResource("2_238v8")
-limit = 30.0
+limit = 20.0
 
 [node name="Building" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.618051, 0)

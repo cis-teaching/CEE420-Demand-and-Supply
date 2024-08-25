@@ -4,7 +4,7 @@ extends Node3D
 
 
 # Class varialbes
-@export var limit:float=10.0
+@export var limit:float=10
 var _initial:float=INF
 var _prices:Array[float]=[_initial]
 var success:bool=false
@@ -51,7 +51,9 @@ func get_adjustment(kind:String="fixed")->float:
 	return adjustment
 
 func add() -> void:
-	adjust_price()
+	#_prices.append(limit)
+	#adjust_price()
+	pass
 
 func remove() -> void:
 	queue_free()
