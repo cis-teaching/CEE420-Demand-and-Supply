@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var buyer_label: Label = $Control/VBoxContainer/ContainerBuyer/CounterBuyer
-@onready var seller_label: Label = $Control/VBoxContainer/ContainerSeller/CounterSeller
+@onready var buyer_label: Label = $Status/VBoxContainer/ContainerBuyer/CounterBuyer
+@onready var seller_label: Label = $Status/VBoxContainer/ContainerSeller/CounterSeller
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

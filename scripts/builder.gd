@@ -19,7 +19,7 @@ var index:int = 0
 var degree:int =0
 var orientations: Array =[0,90,180,270]
 var sprite_dict = {}
-
+var gridmap_position:Vector3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
@@ -30,10 +30,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Get grid position
-	var gridmap_position = selector.gridmap_position
+	gridmap_position = selector.gridmap_position
 
 	# Add and remove Agents 
-	action_add(gridmap_position)
+	# action_add(gridmap_position)
 	action_remove(gridmap_position)
 	
 	# Toggle between agents
@@ -46,11 +46,8 @@ func _process(_delta: float) -> void:
 	# print(sprite_dict)
 	# print(Globals.buyers, Globals.sellers)
 
-func action_add(gridmap_position:Vector3) -> void:
-	if Input.is_action_just_pressed("agent_add"):
-		# var previous_tile = gridmap.get_cell_item(gridmap_position)
-		# gridmap.set_cell_item(gridmap_position, index, 
-		# 	gridmap.get_orthogonal_index_from_basis(selector.basis))
+func _unhandled_input(event):
+	if event.is_action_pressed("agent_add"):
 		if gridmap_position in sprite_dict:
 			sprite_dict[gridmap_position].remove()
 			sprite_dict.erase(gridmap_position)
@@ -65,6 +62,25 @@ func action_add(gridmap_position:Vector3) -> void:
 		# Add sprite to scene and dict
 		sprites.add_child(_agent)
 		sprite_dict[gridmap_position] = _agent
+
+# NOTE Unfortunately action_add is not possible in combination with UI
+#func action_add(gridmap_position:Vector3) -> void:
+	#if Input.is_action_just_pressed("agent_add"):
+#
+		#if gridmap_position in sprite_dict:
+			#sprite_dict[gridmap_position].remove()
+			#sprite_dict.erase(gridmap_position)
+			#
+		#var _agent = agents[index].instantiate()
+		#
+		## Correction term to fix cell offset
+		#_agent.position = gridmap.map_to_local(gridmap_position) - _correction()
+		#_agent_rotate(_agent)
+		#_agent.add()
+		#
+		## Add sprite to scene and dict
+		#sprites.add_child(_agent)
+		#sprite_dict[gridmap_position] = _agent
 		
 
 		
