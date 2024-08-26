@@ -68,7 +68,6 @@ offset_left = -40.0
 offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-mouse_filter = 1
 
 [node name="Panel" type="Panel" parent="ChartUI/Control"]
 layout_mode = 1
