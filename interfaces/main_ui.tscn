@@ -51,6 +51,21 @@ text = "0"
 label_settings = ExtResource("1_31x0g")
 horizontal_alignment = 2
 
+[node name="ContainerPrice" type="HBoxContainer" parent="Status/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="LabelPrice" type="Label" parent="Status/VBoxContainer/ContainerPrice"]
+layout_mode = 2
+text = "Price"
+label_settings = ExtResource("1_31x0g")
+
+[node name="CounterPrice" type="Label" parent="Status/VBoxContainer/ContainerPrice"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("1_31x0g")
+horizontal_alignment = 2
+
 [node name="Button" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 7

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://c631j0dpmquqk"]
+
+[ext_resource type="Script" path="res://scripts/bar.gd" id="1_pf1ij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7w4m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5okw"]
+bg_color = Color(0.917647, 0.439216, 0.282353, 0.313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tf6p2"]
+bg_color = Color(0.917647, 0.439216, 0.282353, 1)
+
+[node name="Bar" type="Control"]
+custom_minimum_size = Vector2(10, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1108.0
+offset_bottom = -338.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pf1ij")
+
+[node name="Back" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_c7w4m")
+theme_override_styles/fill = SubResource("StyleBoxFlat_c5okw")
+step = 1.0
+value = 80.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Front" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_c7w4m")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tf6p2")
+step = 1.0
+value = 30.0
+fill_mode = 3
+show_percentage = false

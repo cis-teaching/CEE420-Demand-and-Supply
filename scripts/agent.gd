@@ -9,6 +9,7 @@ var _initial:float=INF
 var _prices:Array[float]=[_initial]
 var success:bool=false
 var type:String="Agent"
+var bar:BarChart
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

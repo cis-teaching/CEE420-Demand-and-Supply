@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmjr4in5yltf3"]
+[gd_scene load_steps=10 format=3 uid="uid://dmjr4in5yltf3"]
 
 [ext_resource type="Script" path="res://scripts/builder.gd" id="1_5tlqa"]
 [ext_resource type="Texture2D" uid="uid://cptbbgn4lwfwq" path="res://sprites/selector.png" id="1_gf57l"]
@@ -8,6 +8,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dtwxfwn24hkje" path="res://tiles/tiles.tres" id="3_f6wor"]
 [ext_resource type="PackedScene" uid="uid://b478wmoj0ca8i" path="res://interfaces/main_ui.tscn" id="7_5nj14"]
 [ext_resource type="Script" path="res://scripts/trading.gd" id="8_k2apf"]
+[ext_resource type="PackedScene" uid="uid://otf7jtld2kyb" path="res://interfaces/element_ui.tscn" id="9_iw4vj"]
 
 [node name="Main" type="Node3D"]
 
@@ -53,5 +54,51 @@ fov = 20.0
 
 [node name="Trading" type="Node" parent="."]
 script = ExtResource("8_k2apf")
+
+[node name="ChartUI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="ChartUI"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="ChartUI/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="BarContainer" type="HBoxContainer" parent="ChartUI/Control/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="ElementUI" parent="." instance=ExtResource("9_iw4vj")]
 
 [connection signal="run_trading" from="MainUI" to="Trading" method="_on_main_ui_run_trading"]

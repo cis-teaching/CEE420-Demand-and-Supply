@@ -11,3 +11,8 @@ var sellers = 0:
 	set(value):
 		sellers = value
 		status_change.emit()
+
+var price = 0:
+	set(value):
+		price = value
+		status_change.emit()
