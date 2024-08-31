@@ -2,11 +2,10 @@
 
 [resource]
 background_mode = 1
-background_color = Color(0.560784, 0.592157, 0.670588, 1)
+background_color = Color(0.605955, 0.684761, 0.649108, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.560784, 0.592157, 0.670588, 1)
-ambient_light_energy = 0.75
-tonemap_mode = 2
+ambient_light_color = Color(0.797409, 0.815611, 0.860479, 1)
+ambient_light_energy = 0.3
 ssao_enabled = true
 ssao_radius = 0.25
 ssao_intensity = 0.5

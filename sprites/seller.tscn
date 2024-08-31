@@ -1,14 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://6whv2f6um8sm"]
+[gd_scene load_steps=8 format=3 uid="uid://6whv2f6um8sm"]
 
 [ext_resource type="PackedScene" uid="uid://tchsn4lo2s5x" path="res://sprites/agent.tscn" id="1_kiojm"]
 [ext_resource type="Script" path="res://sprites/seller.gd" id="2_238v8"]
+[ext_resource type="PackedScene" uid="uid://cfjbfpjjw73yt" path="res://blender/wind_turbine.blend" id="3_rhamw"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_cdo1g"]
+
+[sub_resource type="Animation" id="Animation_3oe4t"]
+resource_name = "blade_rotation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wind_turbine/Blade:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+}
+
+[sub_resource type="Animation" id="Animation_83131"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wind_turbine/Blade:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3l456"]
+_data = {
+"RESET": SubResource("Animation_83131"),
+"blade_rotation": SubResource("Animation_3oe4t")
+}
 
 [node name="Seller" instance=ExtResource("1_kiojm")]
 script = ExtResource("2_238v8")
 limit = 20.0
 
+[node name="Base" parent="." index="0"]
+visible = false
+
 [node name="Building" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.618051, 0)
+visible = false
 mesh = SubResource("CylinderMesh_cdo1g")
+
+[node name="wind_turbine" parent="." index="2" instance=ExtResource("3_rhamw")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
+
+[node name="Rotor" parent="wind_turbine" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.09166, -0.513161)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_3l456")
+}
+autoplay = "blade_rotation"
+
+[editable path="wind_turbine"]

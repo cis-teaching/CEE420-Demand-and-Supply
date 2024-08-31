@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci6twqswmpwxg"]
+[gd_scene load_steps=5 format=3 uid="uid://ci6twqswmpwxg"]
 
 [ext_resource type="PackedScene" uid="uid://tchsn4lo2s5x" path="res://sprites/agent.tscn" id="1_2bj77"]
 [ext_resource type="Script" path="res://sprites/buyer.gd" id="2_i0wxk"]
+[ext_resource type="PackedScene" uid="uid://chhl75xo14a7o" path="res://blender/house.blend" id="3_fxi67"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_gbb0y"]
 
@@ -9,6 +10,15 @@
 script = ExtResource("2_i0wxk")
 limit = 30.0
 
+[node name="Base" parent="." index="0"]
+visible = false
+
 [node name="Building" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.268855, 0)
+visible = false
 mesh = SubResource("PrismMesh_gbb0y")
+
+[node name="house" parent="." index="2" instance=ExtResource("3_fxi67")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[editable path="house"]
